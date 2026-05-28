@@ -15,7 +15,7 @@ SFTP_REMOTE_DIR = os.getenv("SFTP_REMOTE_DIR")
 print("Connecting to SFTP server...")
 
 try:
-    # Create transport
+    # Create transport/ connection object
     transport = paramiko.Transport((SFTP_HOST, SFTP_PORT))
 
     # Authenticate

@@ -68,7 +68,6 @@ class LoggerManager:
             # =========================================================
 
             console_handler = logging.StreamHandler()
-
             console_handler.setFormatter(formatter)
 
             # =========================================================
@@ -76,9 +75,7 @@ class LoggerManager:
             # =========================================================
 
             if not logger.handlers:
-
                 logger.addHandler(file_handler)
-
                 logger.addHandler(console_handler)
             
 
