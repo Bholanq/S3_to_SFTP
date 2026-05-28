@@ -247,20 +247,25 @@ for obj in response["Contents"]:
         # BUILD REMOTE PATH
         # =====================================================
 
-        remote_path = f"{SFTP_REMOTE_DIR}/{filename}"
+        sftp.chdir(SFTP_REMOTE_DIR)
 
         logger_manager.write_log(
             CYCLE_ID,
-            f"Uploading file to SFTP: {remote_path}"
+            f"Changed to SFTP directory: {SFTP_REMOTE_DIR}"
         )
 
         # =====================================================
         # UPLOAD TO SFTP
         # =====================================================
 
+        logger_manager.write_log(
+            CYCLE_ID,
+            f"Uploading file to SFTP: {filename}"
+        )
+
         sftp.put(
             local_path,
-            remote_path
+            filename
         )
 
         logger_manager.write_log(
