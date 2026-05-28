@@ -1,4 +1,3 @@
-```python
 import os
 import tempfile
 import boto3
@@ -336,4 +335,3 @@ logger_manager.write_log(
 )
 
 print("Transfer process completed.")
-```
