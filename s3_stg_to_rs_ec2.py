@@ -12,19 +12,17 @@ Flow     : Read file_transfer_log (load_flag=0) from Redshift
 Author   : Alumis Data Platform
 
 Redshift paths:
-  Control tables : dev.sandbox.file_transfer_log
-                   dev.sandbox.config_file_master
-                   dev.sandbox.rs_file_load_log
-  Landing tables : dev.sandbox.lndg_compass_data  (driven by config_file_master)
+  Control tables :
+  Landing tables :
 
 S3 paths:
-  Staging        : s3://alumis-analytics-sandbox-bucket/Alumis_Sandbox/VeevaCompass/Staging/{cycle_id}/
+  Staging        :
 """
 
 import boto3
 import logging
 import sys
-import times
+import time
 import re
 import traceback
 from datetime import datetime, timezone
@@ -32,25 +30,25 @@ from datetime import datetime, timezone
 # ─────────────────────────────────────────────
 # CONFIGURATION — update these values
 # ─────────────────────────────────────────────
-BUCKET_NAME         = "alumis-analytics-sandbox-bucket"
-BASE_PREFIX         = "Alumis_Sandbox/VeevaCompass"
-STAGING_PREFIX      = f"{BASE_PREFIX}/Staging"          # + /{cycle_id}/
+BUCKET_NAME         = ""
+BASE_PREFIX         = ""
+STAGING_PREFIX      = f""          # + /{cycle_id}/
 
-REDSHIFT_CLUSTER_ID = "alumis-analytics-sandbox-cluster"                        # update
-REDSHIFT_DATABASE   = "dev"                                              # confirmed
-REDSHIFT_DB_USER    = "redshiftuser"                              # update
+REDSHIFT_CLUSTER_ID = ""                        # update
+REDSHIFT_DATABASE   = ""                                              # confirmed
+REDSHIFT_DB_USER    = ""                              # update
 REDSHIFT_IAM_ROLE   = "" #  update
 
 AWS_REGION          = "eu-north-1"                                      #update to your region
 
 # ── Redshift table references (database.schema.table)
-LOG_TABLE           = "dev.sandbox.file_transfer_log"
-CONFIG_TABLE        = "dev.sandbox.config_file_master"
-LOAD_LOG_TABLE      = "dev.sandbox.rs_file_load_log"
+LOG_TABLE           = ""
+CONFIG_TABLE        = ""
+LOAD_LOG_TABLE      = ""
 
 # ── Data API polling settings
-MAX_WAIT_SECONDS    = 300
-POLL_INTERVAL       = 3
+MAX_WAIT_SECONDS    = 
+POLL_INTERVAL       = 
 
 # ─────────────────────────────────────────────
 # LOGGING
