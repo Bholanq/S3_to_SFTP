@@ -195,11 +195,11 @@ logger_manager.write_log(
 
 unload_sql = f"""
 UNLOAD ('SELECT * FROM {TABLE_NAME}')
-TO 's3://{S3_BUCKET}/{s3_prefix}/'
+TO 's3://{S3_BUCKET}/{s3_prefix}'
 IAM_ROLE '{REDSHIFT_IAM_ROLE}'
 FORMAT CSV
 HEADER
-PARALLEL OFF
+PARALLEL ON
 ALLOWOVERWRITE;
 """
 
