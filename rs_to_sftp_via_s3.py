@@ -97,7 +97,7 @@ REDSHIFT_IAM_ROLE = os.getenv(
 
 AWS_REGION = os.getenv(
     "AWS_REGION",
-    "ap-south-1"
+    "us-east-1"
 )
 
 SFTP_HOST = os.getenv("SFTP_HOST")
@@ -180,8 +180,8 @@ table_safe_name = TABLE_NAME.replace(
 
 s3_prefix = (
     f"{BASE_PREFIX}/"
-    f"{table_safe_name}/"
-    f"{CYCLE_ID}/"
+    f"{table_safe_name}_"
+    f"{CYCLE_ID}"
 ).strip("/")
 
 logger_manager.write_log(
