@@ -1,4 +1,5 @@
 import os
+import io
 import paramiko
 from dotenv import load_dotenv
 
@@ -53,6 +54,27 @@ try:
 
     except IOError:
         print("Folder does NOT exist or permission denied.")
+
+
+    try:
+        sftp.chdir(SFTP_REMOTE_DIR)
+
+        print("Folder exists.")
+        print(f"Current remote directory: {sftp.getcwd()}")
+
+        test_file = "write_test.txt"
+
+        with sftp.file(test_file, "w") as f:
+            f.write("test")
+
+        print("Write successful.")
+
+        sftp.remove(test_file)
+
+        print("Delete successful.")
+
+    except Exception as e:
+        print(f"Write test failed: {e}")
 
     # Close connection
     sftp.close()
