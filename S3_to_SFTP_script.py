@@ -42,11 +42,11 @@ S3_PREFIX = os.getenv("S3_PREFIX")
 # SFTP CONFIGURATION
 # =========================================================
 
-SFTP_HOST = os.getenv("SFTP_HOST")
-SFTP_PORT = int(os.getenv("SFTP_PORT", 22))
-SFTP_USERNAME = os.getenv("SFTP_USERNAME")
-SFTP_PASSWORD = os.getenv("SFTP_PASSWORD")
-SFTP_REMOTE_DIR = os.getenv("SFTP_REMOTE_DIR")
+SFTP_HOST = "100.30.186.101"
+SFTP_PORT = 22
+SFTP_USERNAME = "sftpuser"
+SFTP_PASSWORD = "123456789"
+SFTP_REMOTE_DIR = "/home/sftpuser/upload"
 
 # =========================================================
 # CREATE AWS S3 CLIENT
