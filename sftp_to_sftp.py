@@ -3,7 +3,7 @@ import sys
 import paramiko
 from dotenv import load_dotenv
 from logging_framework import LoggerManager
-
+import time
 # ==============================================================================
 # INITIALIZATION
 # ==============================================================================
@@ -20,6 +20,8 @@ CHUNK_SIZE = 16 * 1024 * 1024  # 16 MB
 
 files_transferred = 0
 bytes_transferred = 0
+
+job_start = time.time()
 
 try:
 
@@ -199,3 +201,14 @@ finally:
         cycle_id,
         "SFTP connections closed"
     )
+
+job_elapsed = time.time() - job_start
+
+overall_speed = (
+    bytes_transferred / 1024 / 1024
+) / job_elapsed
+
+logger.write_log(
+    cycle_id,
+    f"overall thorughput = {overall_speed:.2f} MB/s"
+)
